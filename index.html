@@ -1,49 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book-lib</title>
-</head>
-<body>
-    <header>
-        <h1>Book_Library</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>Book Library</h1>
         <p>Manage your personal book collection</p>
+      </div>
     </header>
-    <main>
-        <section>
-            <h2>Add Book</h2>
-            <form id="book-form">
-                <label for="book-title">Book Title:</label>
-                <input type="text" id="book-title" placeholder="Enter a book title"><br><br>
-                <label for="book-author">Author:</label>
-                <input type="text" id="book-author" placeholder="Enter the author's name"><br><br>
-                <label for="genre">Genre</label>
-                <select id="genre">
-                    <option value="">Select Genre</option>
-                    <option value="Fiction">Fiction</option> 
-                    <option value="Fantasy">Fantasy</option> 
-                    <option value="Science">Science</option> 
-                    <option value="Biography">Biography</option> 
-                    <option value="History">History</option> 
-                    <option value="Romance">Romance</option> 
-                    <option value="Self Help">Self Help</option> 
-                    <option value="Other">Other</option>
-                </select><br><br>
-                <label for="readStatus">Read Status</label>
-                <select id="readStatus"> 
-                    <option value="">Select Status</option> 
-                    <option value="Read">Read</option> 
-                    <option value="Unread">Unread</option> 
-                </select><br><br>
-                <button type="submit" id="addBookButton"> Add Book </button>
-        </section>
-        <section> 
-            <h2>Search Books</h2> 
-            <label for="searchInput">Search</label> 
-            <input type="text" id="searchInput" placeholder="Search by book title or author" > 
-        </section>
-        
+
+    <main class="container">
+      <section class="panel">
+        <h2>Add Book</h2>
+        <form id="bookForm">
+          <div class="form-row">
+            <label for="bookTitle">Book Title:</label>
+            <input
+              type="text"
+              id="bookTitle"
+              placeholder="Enter a book title"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="author">Author:</label>
+            <input
+              type="text"
+              id="author"
+              placeholder="Enter the author's name"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="genre">Genre</label>
+            <select id="genre" required>
+              <option value="">Select Genre</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Science">Science</option>
+              <option value="Biography">Biography</option>
+              <option value="History">History</option>
+              <option value="Romance">Romance</option>
+              <option value="Self Help">Self Help</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="readStatus">Read Status</label>
+            <select id="readStatus" required>
+              <option value="">Select Status</option>
+              <option value="Read">Read</option>
+              <option value="Unread">Unread</option>
+            </select>
+          </div>
+
+          <button type="submit" id="addBookButton">Add Book</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>My Books</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Read Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookList"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Search Books</h2>
+        <label for="searchInput">Search</label>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by book title or author"
+        />
+      </section>
+
+      <section class="panel">
+        <h2>Library Summary</h2>
+        <p>Total Books: <strong id="bookCount">0</strong></p>
+      </section>
     </main>
-</body>
+  </body>
 </html>
